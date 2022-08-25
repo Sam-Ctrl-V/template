@@ -12,7 +12,7 @@ ll n,m;
 
 
 
-void bfs(ll sx){
+void dijkstra(ll sx){
 
 
     priority_queue<pair<ll,ll>>q;
