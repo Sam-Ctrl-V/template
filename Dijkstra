@@ -1,0 +1,53 @@
+#define infinity 1<<30 //2^30
+
+
+vector<ll>v[100005];
+vector<ll>cost[100005];
+vector<ll>dis(100005);
+
+ll vis[100005];
+
+ll n,m;
+
+
+
+
+void bfs(ll sx){
+
+
+    priority_queue<pair<ll,ll>>q;
+
+    for(ll i=1;i<=n;i++){
+        dis[i]=infinity;
+    }
+     dis[sx]=0;
+     q.push({dis[sx],sx});
+
+
+    pair<ll,ll>top1 = q.top();
+
+
+
+
+    while(!q.empty()){
+        pair<ll,ll>top;
+        top = q.top();
+        q.pop();
+
+        ll u = top.second;
+
+        cout<<u<<endl;
+
+         //Relaxation
+
+        for(ll i=0;i<v[u].size();i++){
+
+           if(dis[u]+cost[u][i]<dis[v[u][i]]){
+             dis[v[u][i]]=dis[u]+cost[u][i];
+             q.push({dis[v[u][i]],v[u][i]});
+           }
+
+        }
+
+    }
+}
