@@ -15,7 +15,7 @@ ll n,m;
 void dijkstra(ll sx){
 
 
-   priority_queue<pair<ll, ll>, std::vector<pair<ll,ll>>, std::greater<pair<ll,ll>>> q;
+   priority_queue<pair<ll, ll>> q;
     for(ll i=1;i<=n;i++){
         dis[i]=infinity;
     }
@@ -43,7 +43,7 @@ void dijkstra(ll sx){
 
            if(dis[u]+cost[u][i]<dis[v[u][i]]){
              dis[v[u][i]]=dis[u]+cost[u][i];
-             q.push({dis[v[u][i]],v[u][i]});
+             q.push({-dis[v[u][i]],v[u][i]});
            }
 
         }
