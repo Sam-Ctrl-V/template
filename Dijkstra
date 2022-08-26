@@ -15,8 +15,7 @@ ll n,m;
 void dijkstra(ll sx){
 
 
-   priority_queue<pair<int, int>, std::vector<pair<int,int>>, std::greater<pair<int,int>>> q;
-
+   priority_queue<pair<ll, ll>, std::vector<pair<ll,ll>>, std::greater<pair<ll,ll>>> q;
     for(ll i=1;i<=n;i++){
         dis[i]=infinity;
     }
