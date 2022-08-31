@@ -1,0 +1,43 @@
+double  sqrtx(double n,ll p){
+
+    ll low = 0;
+    ll high = n;
+
+    double ans ;
+
+
+
+    while(low<=high){
+        ll mid = (low+high)/2;
+
+        if(mid*mid==n){
+            ans = mid;
+            break;
+        }
+
+        if(mid*mid>n){
+            high = mid-1;
+        }
+        else{
+            low = mid+1;
+            ans = mid;
+        }
+
+
+
+    }
+
+       double inc = 0.1;
+      for (int i = 0; i < p; i++) {
+        while (ans * ans <= n) {
+            ans += inc;
+        }
+
+
+
+
+        ans = ans - inc;
+        inc = inc / 10;
+    }
+    return ans;
+}
