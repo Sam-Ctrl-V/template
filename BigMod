@@ -1,0 +1,17 @@
+ll bigmod(ll a,ll b,ll m){
+
+
+    if(b==0){
+        return 1%m;
+    }
+    ll res = bigmod(a,b/2,m);
+
+    if(b%2){
+        return ((res*res)%m*a)%m;
+    }
+    else{
+        return (res*res)%m;
+    }
+
+
+}
