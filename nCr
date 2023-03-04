@@ -1,0 +1,10 @@
+ll ncr(ll n,ll r){
+
+  
+
+    if(r==0){
+        return 1;
+    }
+
+    return (ncr(n,r-1)*(n-r+1)/r)%mod;
+}
