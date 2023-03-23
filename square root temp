@@ -1,0 +1,9 @@
+ll sq(ll nm)
+{
+  ll rng = sqrt(nm);
+  ll ret;
+  for(ll i = rng - 3 ; i < rng + 3 ; i++){
+    if(i * i <= nm)ret = i;
+  }
+  return ret;
+}
