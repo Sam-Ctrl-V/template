@@ -1,52 +1,124 @@
+//#pragma GCC optimize("Ofast,unroll-loops")
+//#pragma GCC target("avx,avx2,fma")
+
+#include"bits/stdc++.h"
+//using namespace __gnu_pbds;
+using namespace std;
 #define infinity 1<<30 //2^30
+#define ll long long int
+#define pii pair<ll,ll>
+#define pb push_back
+#define FastIO ios_base::sync_with_stdio(0);cin.tie(0),cout.tie(0)
+#define pi  3.14159265358979323846
+#define INF 99999999
+#define ff first
+#define ss second
+#define MAX_N 20
+
+#define MAXN  10000007
+#define mod  1000000007
+
+#define nnn 10000007
+#define endl '\n'
+
+#define clearbit(x, k) (x & ~((long long)1 << k))
+#define checkbit(x, k) (x & ((long long)1 << k))
+#define setbit(x, k) (x | ((long long)1LL << k))
+
+#define infinity 1e18 
 
 
-vector<ll>v[100005];
-vector<ll>cost[100005];
-vector<ll>dis(100005);
+vector<pair<ll,ll>>v[200005];
 
-ll vis[100005];
-
-ll n,m;
+ll vis[200005];
 
 
 
-
-void dijkstra(ll sx){
-
-
-   priority_queue<pair<ll, ll>> q;
-    for(ll i=1;i<=n;i++){
-        dis[i]=infinity;
-    }
-     dis[sx]=0;
-     q.push({dis[sx],sx});
+int main()
+{
 
 
-    pair<ll,ll>top1 = q.top();
+
+    ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
+
+
+    ll t; t=1;
+    //cin>>t;
+
+
+
+    //sieve(10000007);
 
 
 
 
-    while(!q.empty()){
-        pair<ll,ll>top;
-        top = q.top();
-        q.pop();
+    while(t--){
 
-        ll u = top.second;
+        ll n,m;
 
-        cout<<u<<endl;
+        cin>>n>>m;
 
-         //Relaxation
-
-        for(ll i=0;i<v[u].size();i++){
-
-           if(dis[u]+cost[u][i]<dis[v[u][i]]){
-             dis[v[u][i]]=dis[u]+cost[u][i];
-             q.push({-dis[v[u][i]],v[u][i]});
-           }
+        for(ll i=0;i<m;i++){
+            ll x,y,z;cin>>x>>y>>z;
+            v[x].pb({y,z});
+            //v[y].pb({x,z});
 
         }
 
+        ll dis[n+2];
+
+        priority_queue<pair<ll,ll>> pq;
+        for(ll i=1;i<=n;i++){
+            dis[i]=infinity;
+        }
+
+        ll sx =1;
+
+        dis[sx]=0;
+        pq.push({-dis[sx],sx});
+
+        while(!pq.empty()){
+            ll x = pq.top().ss;
+            pq.pop();
+            
+            if(vis[x])continue;
+            
+            vis[x]=1;
+
+            for(pii it:v[x]){
+                ll y = it.ff;
+                ll z = it.ss;
+                if(dis[y]>dis[x]+z){
+                    dis[y]=dis[x]+z;
+                    pq.push({-dis[y],y});
+                }
+            }
+        }
+
+
+
+
+
+        for(ll i=1;i<=n;i++){
+            cout<<dis[i]<<" ";
+        }cout<<endl;
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
+
+
+
+
+	return 0;
 }
