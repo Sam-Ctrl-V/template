@@ -15,3 +15,9 @@ ll bigmod(ll a,ll b,ll m){
 
 
 }
+
+//Fermat's theorem
+
+// (ans/r)%mod = (ans*(r^-1)%mod)%mod;
+//             =(ans*(r^mod-2)%mod)%mod;
+//             =(ans*bigmod(r,mod-2,mod))%mod; 
