@@ -1,3 +1,5 @@
+//bigmod = (a^b)%m
+
 ll bigmod(ll a,ll b,ll m){
 
 
