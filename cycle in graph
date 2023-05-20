@@ -1,0 +1,27 @@
+void dfs(ll x,ll par){
+
+    vis[x]=1;
+
+    for(auto p:graph[x]){
+
+
+        if(vis[p]&&p!=par){
+            f=1;
+        }
+
+        if(!vis[p]){
+            //cout<<p<<" "<<x<<endl;
+            dfs(p,x);
+
+
+        }
+
+
+
+
+
+
+
+
+    }
+}
